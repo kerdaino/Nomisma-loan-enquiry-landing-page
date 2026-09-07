@@ -199,49 +199,8 @@ h1 em {
   line-height: 1.8;
   max-width: 480px;
 }
-.product-facts {
-  display: grid;
-  grid-template-columns: 1.1fr 1fr 0.85fr;
-  gap: 14px;
-  margin: 26px 0 12px;
-  padding: 20px 0;
-  border-block: 1px solid #dce1cd;
-}
-.product-facts > div {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-.product-facts dt {
-  font-size: 11px;
-  color: var(--muted);
-}
-.product-facts dd {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 4px 0.3em;
-  order: -1;
-  margin: 0;
-  font-size: clamp(18px, 1.8vw, 24px);
-  font-weight: 700;
-  letter-spacing: -0.7px;
-  color: var(--green);
-  white-space: nowrap;
-}
-.product-facts dd span {
-  display: inline-block;
-  font-size: 12px;
-  letter-spacing: 0;
-  font-weight: 500;
-}
-.rate-context {
-  font-size: 12px;
-  color: #576047;
-  margin-bottom: 23px;
-}
 .financing-terms {
-  margin-top: 25px;
+  margin-block: 25px;
   padding: 20px;
   background: #ffffff80;
   border: 1px solid #dce1cd;
@@ -285,21 +244,6 @@ h1 em {
   gap: 12px;
   flex-wrap: wrap;
 }
-.qualifications {
-  list-style: none;
-  padding: 0;
-  margin: 24px 0;
-  color: #576047;
-  font-size: 12px;
-}
-.qualifications li {
-  margin: 8px 0;
-}
-.qualifications li:before {
-  content: "✓";
-  color: #526b0d;
-  margin-right: 9px;
-}
 .form-card {
   padding: 30px;
   background: white;
@@ -325,10 +269,6 @@ h1 em {
   font-size: 28px;
   letter-spacing: -1px;
   margin: 14px 0 8px;
-}
-.form-intro {
-  font-size: 13px;
-  color: var(--muted);
 }
 .required-note {
   font-size: 10px;
@@ -455,7 +395,6 @@ textarea {
   accent-color: var(--green);
   margin: 2px 0;
 }
-
 .submit {
   width: 100%;
   margin-top: 20px;
@@ -674,6 +613,16 @@ textarea {
   font-size: 10px;
   color: var(--muted);
 }
+.developer-credit a {
+  text-decoration: underline;
+  text-decoration-color: var(--border);
+  text-underline-offset: 3px;
+}
+.developer-credit a:hover,
+.developer-credit a:focus-visible {
+  color: var(--green);
+  text-decoration-color: currentColor;
+}
 .mobile-bar {
   display: none;
 }
@@ -828,14 +777,6 @@ textarea {
     font-size: 10px;
     letter-spacing: 1.4px;
   }
-  .product-facts {
-    margin-top: 20px;
-    padding-block: 15px;
-    gap: 10px;
-  }
-  .product-facts dd {
-    font-size: clamp(18px, 4.4vw, 25px);
-  }
   .hero-copy > .eyebrow {
     font-size: 10px;
     letter-spacing: 1px;
@@ -848,15 +789,9 @@ textarea {
     margin-top: 20px;
     padding: 17px;
   }
-  .rate-context {
-    margin-bottom: 18px;
-  }
   .actions .button {
     flex: 1;
     padding-inline: 14px;
-  }
-  .qualifications {
-    margin-bottom: 0;
   }
   .form-card {
     padding: 25px;
@@ -966,17 +901,6 @@ textarea {
   }
 }
 @media (max-width: 420px) {
-  .product-facts {
-    grid-template-columns: 1fr 1fr;
-  }
-  .product-facts > div:first-child {
-    grid-column: 1 / -1;
-    flex-direction: column;
-  }
-  .product-facts > div:first-child dd {
-    font-size: 24px;
-  }
-
   .form-card {
     padding: 20px;
   }
