@@ -160,6 +160,8 @@ form.addEventListener("submit", async (event) => {
     if (!response.ok || !(result.success === true || result.success === "true"))
       throw new Error("Submission not confirmed");
     form.hidden = true;
+    document.querySelector("#form-title").innerHTML =
+      "Thank you<br>Your loan application has been received.";
     document.querySelector("#success-whatsapp").href = whatsapp(detailMessage);
     document.querySelector("#success").hidden = false;
     status.textContent = "";
