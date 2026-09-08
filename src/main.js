@@ -39,6 +39,7 @@ document.querySelector("#app").innerHTML = `
 <form id="enquiry-form"><p class="required-note">All fields are required.</p>
 <fieldset class="applicant"><legend>I’m applying as a</legend><div class="choices"><label><input type="radio" name="applicantType" value="Salary Earner" required><span><span aria-hidden="true">♙</span> Salary Earner</span></label><label><input type="radio" name="applicantType" value="Business Owner" required><span><span aria-hidden="true">▤</span> Business Owner</span></label></div></fieldset>
 <div class="fields"><div class="field full"><label for="full-name">Full name</label><input id="full-name" name="fullName" autocomplete="name" maxlength="120" required placeholder="Your full name"></div>
+<div class="field full"><label for="email">Email Address</label><input id="email" name="email" type="email" autocomplete="email" required placeholder="Your email address"></div>
 <div class="field"><label for="amount">Loan amount (₦)</label><input id="amount" name="amount" type="text" inputmode="numeric" maxlength="40" required placeholder="e.g. ₦1,000,000" aria-describedby="amount-help"></div>
 <div class="field"><label for="phone">Phone / WhatsApp number</label><input id="phone" name="phone" type="tel" autocomplete="tel" maxlength="24" required placeholder="Your phone number" aria-describedby="phone-help"><span class="sr-only" id="phone-help">Enter 10 to 15 digits, with an optional country code.</span></div></div>
 <p id="amount-help" class="amount-help">Enter an amount between ${money(config.loanMin)} and ${money(config.loanMax)}.</p>
@@ -54,7 +55,7 @@ document.querySelector("#app").innerHTML = `
 <section class="process section" id="how-it-works"><div class="container"><p class="eyebrow">How it works</p><h2>A clear place to start</h2><ol class="steps"><li><span>01</span><h3>Submit your application</h3><p>Share your name, loan amount and phone number.</p></li><li><span>02</span><h3>Eligibility review</h3><p>Nomisma reviews your application as the first step in assessing eligibility.</p></li><li><span>03</span><h3>Discuss your next steps</h3><p>A Nomisma representative contacts you with the appropriate next steps.</p></li></ol></div></section>
 <section class="container disclosure"><span class="notice-icon" aria-hidden="true">i</span><div><h2>Before you apply</h2><p>Submitting a loan application does not constitute loan approval. Loan amount, eligibility, documentation requirements, repayment terms and final approval are subject to Nomisma’s assessment and applicable terms. Advertised rates are based on the selected repayment duration.</p></div></section>
 <section class="container final-cta"><div><h2>So what’s next?</h2><p>Start an enquiry or speak with us on WhatsApp.</p></div><div class="actions"><a class="button lime" href="#apply">Apply Now ${arrow}</a>${waLink()}</div></section>
-</main><footer class="container footer"><div><strong>Nomisma Financial Services</strong><p class="tagline">...adding value</p></div><a href="${contactUrl}" target="_blank" rel="noopener noreferrer">WhatsApp ${arrow}</a><p class="copyright">© ${new Date().getFullYear()} Nomisma Financial Services.<br>All rights reserved.<br><span class="developer-credit">Developed by <a href="https://kerdaino.github.io/portfolio/" target="_blank" rel="noopener noreferrer">KD Global</a></span></p></footer>
+</main><footer class="container footer"><div><strong>Nomisma Financial Services</strong><p class="tagline">...adding value</p></div><a href="${contactUrl}" target="_blank" rel="noopener noreferrer">WhatsApp ${arrow}</a><p class="copyright">© ${new Date().getFullYear()} Nomisma Financial Services.<br>All rights reserved.</p></footer>
 <nav class="mobile-bar" aria-label="Quick contact"><a class="button primary" href="#apply">Apply Now ${arrow}</a>${waLink("WhatsApp")}</nav>`;
 
 const form = document.querySelector("#enquiry-form");
@@ -150,6 +151,7 @@ form.addEventListener("submit", async (event) => {
           "Full Name": values.fullName,
           "Phone Number": values.phone,
           "Applicant Type": values.applicantType,
+          "Email Address": values.email,
           "Loan Amount": money(requestedAmount),
           Consent:
             "I consent to Nomisma using the information I provide to contact me regarding this loan application.",

@@ -613,16 +613,6 @@ textarea {
   font-size: 10px;
   color: var(--muted);
 }
-.developer-credit a {
-  text-decoration: underline;
-  text-decoration-color: var(--border);
-  text-underline-offset: 3px;
-}
-.developer-credit a:hover,
-.developer-credit a:focus-visible {
-  color: var(--green);
-  text-decoration-color: currentColor;
-}
 .mobile-bar {
   display: none;
 }

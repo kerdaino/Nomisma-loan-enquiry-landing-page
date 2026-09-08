@@ -15,7 +15,7 @@ Publish the generated `dist` directory to a static HTTPS host.
 
 Client-confirmed contacts are already set in `src/config.js`; preserve them. Loan limits and confirmed monthly rates are centralised there too. The activated FormSubmit random identifier is configured as `formSubmitToken`; the recipient email is not included in frontend runtime code. The identifier is a public form endpoint, not a secret credential.
 
-- Confirmed loan range: ₦500,000–₦50,000,000, inclusive.
+- Confirmed loan range: ₦500,000–₦20,000,000, inclusive.
 - Confirmed pricing: from 3.8% monthly; 1–6 months at 4.2% monthly and 7–12 months at 3.8% monthly. Rates and terms depend on repayment duration and eligibility. No repayment calculations or additional pricing are inferred.
 - Build again after configuration changes.
 - Before sending advert traffic, submit a controlled enquiry with the client's permission and verify actual inbox delivery through the activated endpoint. A successful API response alone does not prove inbox delivery.
@@ -26,7 +26,7 @@ FormSubmit documentation: https://formsubmit.co/ajax-documentation and https://f
 
 ## Scope and privacy
 
-Initial enquiries collect only applicant category (Salary Earner or Business Owner), full name, loan amount, phone number and required contact consent. The payload includes these five values plus the email subject, email template and honeypot. No applicant reply-to field is sent. No repayment calculator, tracking, generated references, document uploads, financial credentials or approval promises. Applicant information is not stored in localStorage, cookies or analytics. WhatsApp opens only when the applicant chooses its link. Failure messages retain the form and do not assert successful submission.
+Initial enquiries collect only applicant category (Salary Earner or Business Owner), full name, email address, loan amount, phone number and required contact consent. The payload includes these six values plus the email subject, email template and honeypot. No applicant reply-to field is sent. No repayment calculator, tracking, generated references, document uploads, financial credentials or approval promises. Applicant information is not stored in localStorage, cookies or analytics. WhatsApp opens only when the applicant chooses its link. Failure messages retain the form and do not assert successful submission.
 
 ## Verification
 
