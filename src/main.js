@@ -1,5 +1,6 @@
 import "./style.css";
 import { NOMISMA_CONFIG as config } from "./config.js";
+import { initializeMetaPixel, trackMetaEvent, trackSuccessfulApplication } from "./meta-pixel.js";
 
 const money = (value) =>
   new Intl.NumberFormat("en-NG", {
@@ -59,6 +60,11 @@ document.querySelector("#app").innerHTML = `
 <nav class="mobile-bar" aria-label="Quick contact"><a class="button primary" href="#apply">Apply Now ${arrow}</a>${waLink("WhatsApp")}</nav>`;
 
 const form = document.querySelector("#enquiry-form");
+initializeMetaPixel();
+// Include the success link before its destination is assigned after submission.
+for (const link of document.querySelectorAll('a[href^="https://wa.me/"], #success-whatsapp')) {
+  link.addEventListener("click", () => trackMetaEvent("Contact"));
+}
 // Use native validation messages after setting the specific amount and phone messages.
 form.noValidate = true;
 const status = document.querySelector("#form-status");
@@ -161,6 +167,7 @@ form.addEventListener("submit", async (event) => {
     const result = await response.json();
     if (!response.ok || !(result.success === true || result.success === "true"))
       throw new Error("Submission not confirmed");
+    trackSuccessfulApplication();
     form.hidden = true;
     document.querySelector("#form-title").innerHTML =
       "Thank you<br>Your loan application has been received.";

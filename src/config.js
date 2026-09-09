@@ -1,5 +1,6 @@
 // Client-confirmed contacts and financing terms.
 export const NOMISMA_CONFIG = Object.freeze({
+  metaPixelId: "1081194371889688",
   formSubmitEndpoint: "https://formsubmit.co/ajax/c177f5dbfec0a2983b73dc5821e45b0e",
   whatsappNumber: "2349013838418",
   loanMin: 500000,
