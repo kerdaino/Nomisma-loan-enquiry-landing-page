@@ -122,7 +122,7 @@ form.addEventListener("submit", async (event) => {
   );
   status.textContent = "";
   fallback.hidden = true;
-  if (!/^[a-f0-9]+$/i.test(config.formSubmitToken ?? "")) {
+  if (!/^https:\/\/formsubmit\.co\/ajax\/[^/?#\s]+$/.test(config.formSubmitEndpoint ?? "")) {
     status.textContent =
       "Loan applications are not available yet. Your details have been kept here. Please continue on WhatsApp to contact Nomisma.";
     fallback.hidden = false;
@@ -136,7 +136,7 @@ form.addEventListener("submit", async (event) => {
   const timeout = setTimeout(() => controller.abort(), 20000);
   try {
     const response = await fetch(
-      `https://formsubmit.co/ajax/${encodeURIComponent(config.formSubmitToken)}`,
+      config.formSubmitEndpoint,
       {
         method: "POST",
         headers: {

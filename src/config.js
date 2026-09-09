@@ -1,7 +1,8 @@
-// Client-confirmed contacts, activated FormSubmit identifier and financing terms.
+// Client-confirmed contacts and financing terms.
 export const NOMISMA_CONFIG = Object.freeze({
-  formSubmitToken: "a1663826ca168de83ea47a61afe8fc28",
-  whatsappNumber: "2349026378453",
+  // Temporary activation endpoint; replace with the new recipient's token URL after activation.
+  formSubmitEndpoint: "https://formsubmit.co/ajax/Ogunenquiries@nomismaolive.com",
+  whatsappNumber: "2349013838418",
   loanMin: 500000,
   loanMax: 20000000,
   rateShortTerm: 4.2,
