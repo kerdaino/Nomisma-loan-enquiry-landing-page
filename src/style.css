@@ -275,63 +275,9 @@ h1 em {
   color: var(--muted);
   margin: 20px 0 12px;
 }
-.applicant {
-  border: 0;
-  padding: 0;
-  margin: 0 0 17px;
-  min-width: 0;
-}
-legend,
 label {
   font-size: 11px;
   font-weight: 600;
-}
-legend {
-  padding: 0;
-  margin-bottom: 7px;
-}
-.choices {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-}
-.choices label {
-  position: relative;
-  cursor: pointer;
-}
-.choices input {
-  position: absolute;
-  left: 12px;
-  top: 16px;
-  width: 15px;
-  height: 15px;
-  margin: 0;
-  accent-color: var(--green);
-}
-.choices label > span {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  justify-content: center;
-  padding: 13px 6px 13px 26px;
-  border: 1px solid var(--border);
-  border-radius: 7px;
-  min-height: 46px;
-}
-.choices label:hover > span {
-  border-color: #738e1f;
-  background: #f7f9ef;
-}
-.choices input:checked + span {
-  border-color: #738e1f;
-  background: #f2f6e6;
-}
-.choices input:focus-visible + span {
-  outline: 3px solid #876500;
-  outline-offset: 3px;
-}
-.choices span span {
-  font-size: 17px;
 }
 .fields {
   display: grid;
@@ -582,13 +528,6 @@ textarea {
 .lime:hover {
   background: #b3cf46;
 }
-.final-cta .secondary {
-  color: #fff;
-  border-color: #76815e;
-}
-.final-cta .secondary:hover {
-  background: #3a501f;
-}
 .footer {
   display: flex;
   justify-content: space-between;
@@ -604,10 +543,6 @@ textarea {
   font: italic 18px Georgia;
   color: #8a6d1e;
   margin-top: 3px;
-}
-.footer > a {
-  font-size: 12px;
-  font-weight: 600;
 }
 .copyright {
   font-size: 10px;
@@ -634,10 +569,6 @@ textarea {
   padding: 13px;
   margin-top: 15px;
 }
-#fallback {
-  margin-top: 12px;
-  width: 100%;
-}
 #success {
   padding: 30px 0;
 }
@@ -648,9 +579,6 @@ textarea {
   font-size: 14px;
   color: var(--muted);
   margin: 20px 0;
-}
-#success .button {
-  width: 100%;
 }
 .success-icon {
   width: 55px;
@@ -693,9 +621,6 @@ textarea {
   .hero-copy {
     padding-top: 16px;
   }
-  .choices label > span {
-    font-size: 10px;
-  }
   .final-cta {
     padding: 36px;
   }
@@ -715,7 +640,6 @@ textarea {
   }
   input,
   .submit,
-  #fallback,
   #success,
   .disclosure,
   .footer {
@@ -729,9 +653,6 @@ textarea {
   }
   .logo {
     width: 150px;
-  }
-  .header-whatsapp {
-    display: none;
   }
   .header .button {
     padding: 11px 17px;
@@ -789,11 +710,7 @@ textarea {
   .form-card h2 {
     font-size: 29px;
   }
-  .choices label > span {
-    font-size: 12px;
-  }
-  .field label,
-  legend {
+  .field label {
     font-size: 12px;
   }
   input:not([type="checkbox"]):not([type="radio"]),
@@ -870,7 +787,7 @@ textarea {
   }
   .mobile-bar {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 10px;
     position: fixed;
     z-index: 10;
@@ -912,9 +829,6 @@ textarea {
   }
   .financing-terms dd {
     font-size: 16px;
-  }
-  .choices label > span {
-    font-size: 11px;
   }
   .form-card h2 {
     font-size: 26px;

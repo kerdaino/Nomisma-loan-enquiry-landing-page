@@ -2,7 +2,7 @@ import { NOMISMA_CONFIG } from "./config.js";
 
 let initialized = false;
 let leadTracked = false;
-const allowedEvents = new Set(["PageView", "Lead", "Contact"]);
+const allowedEvents = new Set(["PageView", "Lead"]);
 
 // Event names only: never accept application data or matching parameters.
 export function trackMetaEvent(eventName) {
