@@ -41,7 +41,7 @@ document.querySelector("#app").innerHTML = `
 
 <button class="button primary submit" type="submit">Send loan application ${arrow}</button><p class="form-footnote">A loan application is the first step. It is not a loan approval.</p></form>
 <div id="form-status" role="status" aria-live="polite" aria-atomic="true"></div>
-<div id="success" hidden tabindex="-1"><div class="success-icon" aria-hidden="true">✓</div><p>Check your email for feedback</p></div>
+<div id="success" hidden tabindex="-1"><div class="success-icon" aria-hidden="true">✓</div><p>Check your email for feedback</p><a id="success-whatsapp" class="button primary" href="#" target="_blank" rel="noopener noreferrer">Continue to WhatsApp ${arrow}</a></div>
 </section></div></section>
 <section class="container serve section" aria-labelledby="serve-title"><div class="section-heading"><div><p class="eyebrow">Who we serve</p><h2 id="serve-title">Different goals.<br>The same thoughtful approach.</h2></div><p>Personal priorities or business possibilities.<br>Tell us what moving forward means to you.</p></div><div class="serve-grid"><article class="serve-card"><div class="card-top"><span class="line-icon" aria-hidden="true">♙</span><span class="card-label">Personal needs</span></div><h3>Salary Earners</h3><p>Explore loan options for important personal needs and planned expenses, subject to an assessment of your circumstances.</p><a href="#apply">Apply as a Salary Earner ${arrow}</a></article><article class="serve-card business"><div class="card-top"><span class="line-icon" aria-hidden="true">▤</span><span class="card-label">Business goals</span></div><h3>Business Owners</h3><p>Start a conversation about working capital, expansion or other eligible needs for the business you are building.</p><a href="#apply">Apply as a Business Owner ${arrow}</a></article></div></section>
 <section class="process section" id="how-it-works"><div class="container"><p class="eyebrow">How it works</p><h2>A clear place to start</h2><ol class="steps"><li><span>01</span><h3>Submit your application</h3><p>Share your name, loan amount and phone number.</p></li><li><span>02</span><h3>Eligibility review</h3><p>Nomisma reviews your application as the first step in assessing eligibility.</p></li><li><span>03</span><h3>Discuss your next steps</h3><p>A Nomisma representative contacts you with the appropriate next steps.</p></li></ol></div></section>
@@ -138,6 +138,16 @@ form.addEventListener("submit", async (event) => {
     form.hidden = true;
     document.querySelector("#form-title").innerHTML =
       "Thank you<br>Your loan application has been received.";
+    const whatsappMessage = `Hello Nomisma, I just submitted a loan application through the Abeokuta application page.
+
+Name: ${values.fullName}
+Location / Address: ${values.location}
+Phone Number: ${values.phone}
+Loan Amount: ${money(requestedAmount)}
+
+Please assist me with the next steps.`;
+    document.querySelector("#success-whatsapp").href =
+      `https://wa.me/${config.whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
     document.querySelector("#success").hidden = false;
     status.textContent = "";
     document.querySelector("#success").focus();
