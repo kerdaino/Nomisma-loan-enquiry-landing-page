@@ -1,8 +1,7 @@
 import { NOMISMA_CONFIG } from "./config.js";
 
 let initialized = false;
-let leadTracked = false;
-const allowedEvents = new Set(["PageView", "Lead"]);
+const allowedEvents = new Set(["PageView", "Contact"]);
 
 // Event names only: never accept application data or matching parameters.
 export function trackMetaEvent(eventName) {
@@ -12,13 +11,6 @@ export function trackMetaEvent(eventName) {
   } catch {
     // Tracking must never affect applications or link navigation.
   }
-}
-
-export function trackSuccessfulApplication() {
-  if (leadTracked) return;
-  // This page accepts one application before showing its terminal success UI.
-  leadTracked = true;
-  trackMetaEvent("Lead");
 }
 
 export function initializeMetaPixel() {
