@@ -1,39 +1,56 @@
-# Nomisma loan enquiry landing page
+# Nomisma Loan Enquiry Landing Page
 
-Vite + vanilla JavaScript/CSS. No runtime packages or external fonts.
+A focused, responsive landing page for starting a loan enquiry with Nomisma Financial Services.
 
-## Run
+Live site: https://nomisma-landing-page.vercel.app/
 
-- `npm install`
-- `npm run dev`
-- `npm run build`
-- `npm run preview`
+## Current live journey
 
-Publish the generated `dist` directory to a static HTTPS host.
+The verified public deployment uses a direct WhatsApp journey. Visible application calls to action open the same configured Nomisma WhatsApp conversation.
+
+The page currently provides:
+
+- Separate entry points for salary earners and business owners
+- Duration-based rate information
+- Clear eligibility and no-automatic-approval disclosure
+- Consistent direct-WhatsApp application calls to action
+- Responsive presentation for mobile and desktop screens
+- Centralised business values and contact configuration
+- Safely encoded WhatsApp message content
+
+No application form is present on the verified live deployment as of 10 October 2026.
+
+## Historical implementation note
+
+Earlier versions of this project included a form-based enquiry flow with input validation, consent, honeypot, loading, retry and success or failure behavior. That implementation is historical and must not be described as the current customer journey unless it is intentionally restored and verified.
+
+## Technology
+
+- Vite
+- Vanilla JavaScript
+- HTML and CSS
+- No runtime UI framework
 
 ## Client configuration
 
-Client-confirmed contacts are already set in `src/config.js`; preserve them. Loan limits and confirmed monthly rates are centralised there too. The activated FormSubmit random identifier is configured as `formSubmitToken`; the recipient email is not included in frontend runtime code. The identifier is a public form endpoint, not a secret credential.
+The current WhatsApp destination, approved loan range and duration-based rates are centralised in src/config.js. Preserve client-confirmed values and rebuild after configuration changes.
 
-- Confirmed loan range: ₦500,000–₦20,000,000, inclusive.
-- Confirmed pricing: from 3.8% monthly; 1–6 months at 4.2% monthly and 7–12 months at 3.8% monthly. Rates and terms depend on repayment duration and eligibility. No repayment calculations or additional pricing are inferred.
-- Build again after configuration changes.
-- Before sending advert traffic, submit a controlled enquiry with the client's permission and verify actual inbox delivery through the activated endpoint. A successful API response alone does not prove inbox delivery.
-- Confirm the client's consent wording and use of FormSubmit for enquiry processing.
-- On domain migration, verify HTTPS, email submission and WhatsApp again. Add the confirmed canonical URL and absolute social-sharing URL/image then; no production domain has been invented.
+Do not infer repayment calculations, approval outcomes, hidden charges or additional pricing. Changes to financial copy, contacts or application routing require client confirmation.
 
-FormSubmit documentation: https://formsubmit.co/ajax-documentation and https://formsubmit.co/
+## Local setup
 
-## Scope and privacy
+    npm install
+    npm run dev
+    npm run build
+    npm run preview
 
-Initial enquiries collect only applicant category (Salary Earner or Business Owner), full name, email address, loan amount, phone number and required contact consent. The payload includes these six values plus the email subject, email template and honeypot. No applicant reply-to field is sent. No repayment calculator, tracking, generated references, document uploads, financial credentials or approval promises. Applicant information is not stored in localStorage, cookies or analytics. WhatsApp opens only when the applicant chooses its link. Failure messages retain the form and do not assert successful submission.
+Publish the generated dist directory to a static HTTPS host.
 
-## Verification
+## Verification boundaries
 
-Production build and diff whitespace check passed. Temporary DOM tests used simulated responses for both applicant categories, both inclusive loan boundaries, formatted naira amounts, out-of-range and malformed/decimal rejection, unchanged invalid input, corrected retry, required consent, successful submission, rejected response, network failure, honeypot, duplicate submit prevention, exact payload and WhatsApp encoding. Category-card links, rate copy and removal of obsolete fields were also checked. No live email was sent. Internal anchors and WhatsApp destinations were checked.
-
-Final Chrome responsive checks covered 375px, 390px, 430px, 768px and 1440px widths. Checked the hero, applicant controls, keyboard selection/focus, consent/submit spacing and clean initial form state. At 390px, the key hero copy and Apply Now are visible within an 844px-high viewport. The mobile bar hides while the form, financing terms, disclosure or footer is visible, avoiding content overlap. CSS retains safe-area spacing and reduced-motion handling. A real mobile WhatsApp app handoff and live FormSubmit inbox delivery remain to be verified. No live enquiry was sent during QA.
-
-The requested `reference/original-landing.html` was absent. The supplied `reference/nomisma_loan_landing_page-3.html`, mini-app ZIP and public logo were inspected instead and preserved.
-
-Loan input accepts plain digits, correctly grouped commas, whitespace and an optional leading ₦ symbol. Validation normalizes a separate numeric value without rewriting the applicant’s entry; emails and WhatsApp use formatted naira amounts. Ambiguous grouping, decimals, signs and scientific notation are rejected.
+- Verify every application call to action after contact changes.
+- Check URL encoding and the exact destination before deployment.
+- Test important mobile and desktop widths after layout changes.
+- Opening a WhatsApp link in a browser does not prove a successful mobile-app handoff or completed application.
+- Do not send a real enquiry without the client's permission.
+- Do not claim conversion rates, enquiry volumes or lending outcomes without authorised records.
